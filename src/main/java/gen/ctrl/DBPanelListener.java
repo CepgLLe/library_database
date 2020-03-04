@@ -21,7 +21,7 @@ public class DBPanelListener implements ActionListener, CtrlInterface {
     public void actionPerformed(ActionEvent ae) {
         try {
             switch (ae.getActionCommand()) {
-                case ("Назад") :
+                case ("Назад") : // "Back"
 
                     clearMessageForUser();
                     changePanel(theView.getMenuPanel());
@@ -30,12 +30,12 @@ public class DBPanelListener implements ActionListener, CtrlInterface {
                     // Check button
                     System.out.println("The \"Назад\" button is working!");
                     break;
-                case ("Кнопка") :
+                case ("Кнопка") : // "Button"
                     // reserved
                     break;
             }
         } catch (Throwable th) {
-            theView.displayErrorMessageDialog("Странныя ошибка тут: " + th.getClass().getSimpleName());
+            theView.displayErrorMessageDialog("Ошибка: " + th.getClass().getSimpleName()); // "Error: "...
             //System.out.println("Throwable: " + th.getMessage());
         }
     }

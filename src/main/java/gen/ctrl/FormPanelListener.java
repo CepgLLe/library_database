@@ -23,7 +23,7 @@ public class FormPanelListener implements ActionListener, CtrlInterface {
     public void actionPerformed(ActionEvent ae) {
         try {
             switch (ae.getActionCommand()) {
-                case ("Назад") :
+                case ("Назад") : // "Back"
                     clearMessageForUser();
                     changePanel(theView.getMenuPanel());
                     clearMessageForUser();
@@ -34,7 +34,7 @@ public class FormPanelListener implements ActionListener, CtrlInterface {
                     // Check button
                     System.out.println("The \"Назад\" button is working!");
                     break;
-                case ("Сохранить") :
+                case ("Сохранить") : // "Save"
                     String[] personData = theView.getPersonData();
                     if (theView.isFormReadyForSave()) {
                         theModel.setDataAndSave(personData);
@@ -53,21 +53,19 @@ public class FormPanelListener implements ActionListener, CtrlInterface {
                         System.out.println("The \"Сохранить\" button is working!");
                     } else throw new IOException("A person data does not exist");
                     break;
-                case "Обновить" :
-                    // Will create!!!!
+                case "Обновить" : // "Update"
+                    // Will create an action of button for edit a person!!!
                     break;
             }
         } catch (FileNotFoundException ex) {
             theView.displayErrorMessageDialog("Какие-то файлы не подключены!"); // "Some files is not connect!"
             System.out.println("Exception: " + ex.getMessage());
         } catch (IOException ex) {
-            String messageForUser = (ex.getMessage().contains("contains this person")) ?
-                    "Данный сотрудник уже записан!" : "Поблемы с передачей данных!";
-            theView.displayErrorMessageDialog(messageForUser);
+            theView.displayErrorMessageDialog("Поблемы с передачей данных!"); // "Problems with a data transit!"
             System.out.println("Exception: " + ex.getMessage());
         } catch (Throwable th) {
-            theView.displayErrorMessageDialog("Странныя ошибка: " + th.getClass().getSimpleName());
-            System.out.println("Throwable: " + th.getMessage());
+            theView.displayErrorMessageDialog("Ошибка: " + th.getClass().getSimpleName()); // "Error: "...
+            //System.out.println("Throwable: " + th.getMessage());
         }
     }
 

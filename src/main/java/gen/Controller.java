@@ -1,9 +1,6 @@
 package gen;
 
-import gen.ctrl.LogInPanelListener;
-import gen.ctrl.MenuPanelListener;
-import gen.ctrl.FormPanelListener;
-import gen.ctrl.DBPanelListener;
+import gen.ctrl.*;
 
 public class Controller {
 

@@ -25,13 +25,8 @@ public class Person implements Comparable<Person>/*, Externalizable*/ {
         this.age        = createAge(birthDate);
     }
 
-    /*// Default constructor
-    public Person() {
-
-    }*/
-
-    // This method return age. The method create age like:
-    // age equals year from now minus year of birth date.
+    /* This method return age. The method create age like:
+       age equals year from now minus year of birth date. */
     private int createAge(LocalDate date) {
         return LocalDate.now().getYear() - date.getYear();
     }

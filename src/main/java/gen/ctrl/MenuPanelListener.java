@@ -22,16 +22,17 @@ public class MenuPanelListener implements ActionListener, CtrlInterface {
         try {
             switch (ae.getActionCommand()) {
                 case ("Форма для заполнения") :
-                    // "Переходим" в панель формы
+                    // Go to FormPanel
                     changePanel(theView.getFormPanel());
                     // Check button
                     System.out.println("The \"Форма для заполнения\" button is working!");
                     break;
-                case ("База данных") :
+                case ("База данных") : // "Database"
 
-                    // "Переходим" в базу данных
+                    // Go to DbPanel
                     changePanel(theView.getDbPanel());
 
+                    // Reads the data_list.dat, create TreeSet and set to DbPanel for create the table
                     theView.setPersonsListToDatabase(theModel.getPersonList());
 
                     // Check button

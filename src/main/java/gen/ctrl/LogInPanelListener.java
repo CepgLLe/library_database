@@ -23,31 +23,31 @@ public class LogInPanelListener implements ActionListener, CtrlInterface {
         char[] password;
         try {
             switch (ae.getActionCommand()) {
-                case ("Войти") :
-                    // Получаем и отправляем пароли для сверки
+                case ("Войти") : // "To come in"
+                    // Transit login and password to the Model
                     login = theView.getLogin();
                     password = theView.getPassword();
                     theModel.setLoginAndPassword(login, password);
 
-                    // Проверяем пароль
+                    // check password
                     if (theModel.isPasswordRight()) {
-                        // "Переходим" в меню
+                        // Go to MenuPanel
                         changePanel(theView.getMenuPanel());
                     } else {
-                        /* Если пароль неверный, обнуляем поля для ввода
-                           и выдаём ошибку */
+                        /* If login/password is invalid reset fields
+                           and throw an error message for user */
                         theView.setLogin("");
                         theView.setPassword("");
-                        theView.displayErrorMessageDialog("Неверный логин или пароль");
+                        theView.displayErrorMessageDialog("Неверный логин или пароль"); // Invalid login or password
                     }
                     System.out.println("The \"Войти\"  button is working!");
                     break;
-                case ("Кнопка") :
+                case ("Кнопка") : // "Button"
                     // reserved
                     break;
             }
         } catch (Throwable th) {
-            theView.displayErrorMessageDialog("Странныя ошибка тут: " + th.getClass().getSimpleName());
+            theView.displayErrorMessageDialog("Оштбка: " + th.getClass().getSimpleName()); // "Error: "...
             System.out.println("Throwable: " + th.getMessage());
         }
     }
