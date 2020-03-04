@@ -1,0 +1,9 @@
+Person{id=1, lastName=Чаруйский, firstName=Дмитрий, fatherName=Андреевич, sex=М, birthDate=10.06.1990}
+Person{id=2, lastName=Пук, firstName=Пук, fatherName=Пуков, sex=М, birthDate=01.01.2020}
+Person{id=3, lastName=Сарилов, firstName=Атак, fatherName=Фахитович, sex=М, birthDate=05.06.1966}
+Person{id=4, lastName=Пк, firstName=Фк, fatherName=Мк, sex=Ж, birthDate=08.08.1999}
+Person{id=5, lastName=Тр, firstName=Врпа, fatherName=Кралл, sex=Ж, birthDate=26.06.1979}
+Person{id=6, lastName=Фахитов, firstName=Фарх, fatherName=Азалотинович, sex=М, birthDate=23.01.1982}
+Person{id=7, lastName=Тра, firstName=Па, fatherName=Пам, sex=М, birthDate=05.01.2020}
+Person{id=8, lastName=Полиролев, firstName=Карл, fatherName=Аташевич, sex=М, birthDate=20.12.1953}
+Person{id=9, lastName=Васечкин, firstName=Вася, fatherName=Васев, sex=М, birthDate=15.09.1996}
