@@ -1,7 +1,7 @@
 package gen.ctrl;
 
-import gen.Model;
 import gen.View;
+import gen.Model;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -29,6 +29,9 @@ public class DBPanelListener implements ActionListener, CtrlInterface {
 
                     // Check button
                     System.out.println("The \"Назад\" button is working!");
+                    break;
+                case ("Кнопка") :
+                    // reserved
                     break;
             }
         } catch (Throwable th) {

@@ -1,7 +1,7 @@
 package gen.ctrl;
 
-import gen.Model;
 import gen.View;
+import gen.Model;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -39,7 +39,7 @@ public class FormPanelListener implements ActionListener, CtrlInterface {
                     if (theView.isFormReadyForSave()) {
                         theModel.setDataAndSave(personData);
 
-                        /* If employee saved to file (It's checking in the Model) these methods
+                        /* If employee saved to file (It's checking in the gen.Model) these methods
                            set default values, clear all text fields in Form Panel and then
                            change condition false. */
                         if (theModel.isDataSaved()) {

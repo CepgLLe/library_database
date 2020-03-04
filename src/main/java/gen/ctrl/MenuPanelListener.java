@@ -1,7 +1,7 @@
 package gen.ctrl;
 
-import gen.Model;
 import gen.View;
+import gen.Model;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

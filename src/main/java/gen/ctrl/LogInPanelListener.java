@@ -1,7 +1,7 @@
 package gen.ctrl;
 
-import gen.Model;
 import gen.View;
+import gen.Model;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -41,6 +41,9 @@ public class LogInPanelListener implements ActionListener, CtrlInterface {
                         theView.displayErrorMessageDialog("Неверный логин или пароль");
                     }
                     System.out.println("The \"Войти\"  button is working!");
+                    break;
+                case ("Кнопка") :
+                    // reserved
                     break;
             }
         } catch (Throwable th) {
