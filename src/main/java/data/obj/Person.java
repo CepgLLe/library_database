@@ -9,10 +9,10 @@ public class Person implements Comparable<Person>/*, Externalizable*/ {
      * have been adding to file.
      * The age will be create when be set a birth date.
      */
-    private int           id;
-    private LocalDate     birthDate;
-    private String        lastName, firstName, fatherName, sex;
-    private transient int age;
+    private int       id;
+    private LocalDate birthDate;
+    private String    lastName, firstName, fatherName, sex;
+    private int       age;
 
     public Person(int id, String lastName, String firstName, String fatherName,
                     String sex, LocalDate birthDate) {

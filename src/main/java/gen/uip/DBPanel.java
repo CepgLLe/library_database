@@ -3,9 +3,11 @@ package gen.uip;
 import data.obj.Person;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.TreeSet;
 
@@ -97,8 +99,21 @@ public class DBPanel extends JPanel {
             public boolean isCellEditable(int row, int column) {
                 return false;
             }
+
         };
         dbTable.setModel(dtm);
+        dbTable.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table,
+                                                           Object value,
+                                                           boolean isSelected,
+                                                           boolean hasFocus,
+                                                           int row, int column) {
+                JLabel label = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                label.setHorizontalAlignment(SwingConstants.CENTER);
+                return label;
+            }
+        });
     }
 
     public String getMessageForUser() {
