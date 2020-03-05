@@ -2,6 +2,7 @@ package gen;
 
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import javax.swing.*;
@@ -141,7 +142,7 @@ public class View extends JFrame {
 
     /* A method set TreeSet with persons from data_list.dat
        and create the table */
-    public void setPersonsListToDatabase(TreeSet<Person> personTreeSet) {
-        dbPanel.createDatabase(personTreeSet);
+    public void setPersonsListToDatabase(TreeMap<Integer, Person> personTreeMap) {
+        dbPanel.createDatabase(personTreeMap);
     }
 }

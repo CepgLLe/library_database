@@ -7,37 +7,37 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.TreeSet;
+import java.util.TreeMap;
 
 public class PersonReader {
 
-    private TreeSet<Person> personTreeSet;
+    private TreeMap<Integer, Person> personTreeMap;
     private BufferedReader br;
 
     public PersonReader(Path path) throws IOException {
-        personTreeSet = new TreeSet<>();
+        personTreeMap = new TreeMap<>(Integer::compare);
         this.br = new BufferedReader(new InputStreamReader(new FileInputStream(path.toFile()), StandardCharsets.UTF_8));
     }
 
     public void read() throws IOException {
         String line;
         while ((line = br.readLine()) != null) {
-            addPersonTreeSet(line);
+            addPersonTreeMap(line);
         }
         close();
         System.out.println("Persons list was read.");
     }
 
-    private void addPersonTreeSet(String line) {
-        personTreeSet.add(new Person(
+    private void addPersonTreeMap(String line) {
+        Person person = new Person(
                 Integer.parseInt(getParam(line, "id=", ',')),
                 getParam(line, "lastName=", ','),
                 getParam(line, "firstName=", ','),
                 getParam(line, "fatherName=", ','),
                 getParam(line, "sex=", ','),
                 LocalDate.parse(getParam(line, "birthDate=", '}'),
-                        DateTimeFormatter.ofPattern("dd.MM.yyyy"))
-        ));
+                        DateTimeFormatter.ofPattern("dd.MM.yyyy")));
+        personTreeMap.put(person.getId(), person);
 //        System.out.println("Person added to \"data_list\"");
     }
 
@@ -52,16 +52,12 @@ public class PersonReader {
         br.close();
     }
 
-    public TreeSet<Person> getPersonTreeSet() {
-        return personTreeSet;
+    public TreeMap<Integer, Person> getPersonTreeMap() {
+        return personTreeMap;
     }
 
     // A method return person by ID but only after reading a file.
     public Person getPersonById(int id) {
-        Person person = null;
-        for (Person p : personTreeSet) {
-            if (p.getId() == id) person = p;
-        }
-        return person;
+        return personTreeMap.get(id);
     }
 }

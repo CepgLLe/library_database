@@ -6,6 +6,7 @@ import data.services.PersonWriter;
 
 import java.io.*;
 import java.nio.file.Paths;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class Model {
@@ -88,11 +89,11 @@ public class Model {
 
     /* Reads a data list and create a person list as TreeSet collection which
        sorted by ID of person */
-    public TreeSet<Person> getPersonList() throws IOException {
+    public TreeMap<Integer, Person> getPersonList() throws IOException {
         PersonReader pr = new PersonReader(Paths.get(DATA_PATH, DATA_LIST));
         pr.read();
         pr.close();
 
-        return pr.getPersonTreeSet();
+        return pr.getPersonTreeMap();
     }
 }

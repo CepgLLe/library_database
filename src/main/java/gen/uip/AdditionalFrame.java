@@ -21,7 +21,7 @@ public class AdditionalFrame extends JFrame implements Runnable {
         this.setLocationRelativeTo(null);
         this.setResizable(false); // If false - not resizable
         this.setSize(600,250);
-        this.setTitle("DB");
+        //this.setTitle("DB");
         this.setLayout(null);
 
         this.setVisible(true);

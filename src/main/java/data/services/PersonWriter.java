@@ -47,9 +47,9 @@ public class PersonWriter {
         pr.read();
 
         int id;
-        if (pr.getPersonTreeSet().size() == 0) id = 1;
+        if (pr.getPersonTreeMap().size() == 0) id = 1;
         else {
-            id = pr.getPersonTreeSet().size() + 1;
+            id = pr.getPersonTreeMap().size() + 1;
             bw.newLine();
         }
         bw.write(new Person(
@@ -71,16 +71,15 @@ public class PersonWriter {
         PersonReader pr = new PersonReader(path);
         pr.read();
 
-        for (Person p : pr.getPersonTreeSet()) {
-            if (p.getId() == id &&
-                p.getLastName().equals(personData[0]) &&
-                p.getFirstName().equals(personData[1]) &&
-                p.getFatherName().equals(personData[2])) {
+        if (pr.getPersonTreeMap().containsKey(id)) {
+            if (pr.getPersonById(id).getId() == id &&
+                    pr.getPersonById(id).getLastName().equals(personData[0]) &&
+                    pr.getPersonById(id).getFirstName().equals(personData[1]) &&
+                    pr.getPersonById(id).getFatherName().equals(personData[2])) {
 
                 this.isWritten = true;
-                break;
             }
-        }
+        } else throw new NullPointerException("The person not found by ID");
 
         System.out.println("Person checked with: " + this.isWritten);
     }

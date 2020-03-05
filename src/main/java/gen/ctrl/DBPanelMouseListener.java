@@ -4,7 +4,6 @@ import gen.Model;
 import gen.View;
 import gen.uip.*;
 
-import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -22,15 +21,19 @@ public class DBPanelMouseListener extends MouseAdapter {
     public void mouseClicked(MouseEvent me) {
         if (me.getClickCount() == 2) {
             AdditionalFrame af = new AdditionalFrame();
-            // Insert to AdditionalFrame a panel what we need
+            /* We can create the settings of object (title or size for example).
+               Create it after this comment*/
+            af.setTitle("Editing of person info");
             af.setPanel(FormPanel.getInstance());
-            // Add the panel to object
             af.add(af.getPanel());
-            // Set visible
+            /* We can create the settings of Panel (colors for example).
+               Create it after this comment*/
             af.getPanel().setVisible(true);
             // Create a thread
             Thread th = new Thread(af);
             th.start();
+
+            //
 
             // Double click check
             System.out.println("Double click is working!");

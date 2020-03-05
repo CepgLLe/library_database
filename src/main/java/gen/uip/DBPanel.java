@@ -10,6 +10,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 /**
@@ -27,6 +29,8 @@ public class DBPanel extends JPanel {
 
     private JTable dbTable;
     private JScrollPane dbTableScroll;
+
+    private TreeMap<Integer, Person> personTreeMap;
 
     private JButton toMenuButton;
 
@@ -83,20 +87,21 @@ public class DBPanel extends JPanel {
     }
 
     /**
-     * @param personTreeSet contains all persons from data list. Sorted by ID.
+     * @param personTreeMap contains all persons from data list. Sorted by ID.
      */
-    public void createDatabase(TreeSet<Person> personTreeSet) {
-        
-        data = new Object[personTreeSet.size()][6];
+    public void createDatabase(TreeMap<Integer, Person> personTreeMap) {
+        this.personTreeMap = personTreeMap;
+
+        data = new Object[this.personTreeMap.size()][6];
         int index = 0;
-        for (Person p : personTreeSet) {
-            if (index < personTreeSet.size()) {
-                data[index][0] = p.getLastName();
-                data[index][1] = p.getFirstName();
-                data[index][2] = p.getFatherName();
-                data[index][3] = p.getSex();
-                data[index][4] = p.getAge();
-                data[index][5] = p.getBirthDate().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        for (Map.Entry<Integer, Person> pair : this.personTreeMap.entrySet()) {
+            if (index < this.personTreeMap.size()) {
+                data[index][0] = pair.getValue().getLastName();
+                data[index][1] = pair.getValue().getFirstName();
+                data[index][2] = pair.getValue().getFatherName();
+                data[index][3] = pair.getValue().getSex();
+                data[index][4] = pair.getValue().getAge();
+                data[index][5] = pair.getValue().getBirthDate().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
             }
             index++;
         }
@@ -115,7 +120,8 @@ public class DBPanel extends JPanel {
                                                            boolean isSelected,
                                                            boolean hasFocus,
                                                            int row, int column) {
-                JLabel label = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                JLabel label = (JLabel) super.
+                        getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
                 label.setHorizontalAlignment(SwingConstants.CENTER);
                 return label;
             }
@@ -132,5 +138,9 @@ public class DBPanel extends JPanel {
 
     public void setData(Object[][] data) {
         this.data = data;
+    }
+
+    public TreeMap<Integer, Person> getPersonTreeMap() {
+        return personTreeMap;
     }
 }
