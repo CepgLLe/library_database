@@ -15,5 +15,6 @@ public class Controller {
         this.theView.addMenuPanelListener(new MenuPanelListener(this.theView, this.theModel));
         this.theView.addFormPanelListener(new FormPanelListener(this.theView, this.theModel));
         this.theView.addDBPanelListener(new DBPanelListener(this.theView, this.theModel));
+        this.theView.addDBPanelMouseListener(new DBPanelMouseListener(this.theView, this.theModel));
     }
 }

@@ -3,10 +3,11 @@ package gen.uip;
 import data.obj.Person;
 
 import javax.swing.*;
+import javax.swing.event.MouseInputListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.TreeSet;
@@ -49,6 +50,7 @@ public class DBPanel extends JPanel {
         messageForUser.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // Set a black border
         
         dbTableScroll.setBounds(10,45,564,150);
+        dbTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
         toMenuButton.setBounds(10,10, 110, 25);
         toMenuButton.setFocusPainted(false);
@@ -69,6 +71,10 @@ public class DBPanel extends JPanel {
 
     public void addDBPanelListener(ActionListener listener) {
         toMenuButton.addActionListener(listener);
+    }
+
+    public void addDBPanelMouseListener (MouseListener ml) {
+        dbTable.addMouseListener(ml);
     }
 
     private void createTableWithNullData() {

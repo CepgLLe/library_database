@@ -1,6 +1,7 @@
 package gen;
 
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.util.TreeSet;
 
 import javax.swing.*;
@@ -95,6 +96,10 @@ public class View extends JFrame {
 
     void addDBPanelListener(ActionListener listener) {
         dbPanel.addDBPanelListener(listener);
+    }
+
+    void addDBPanelMouseListener(MouseListener ml) {
+        dbPanel.addDBPanelMouseListener(ml);
     }
 
     public void displayErrorMessageDialog(String errorMessage) {
