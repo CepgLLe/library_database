@@ -38,7 +38,7 @@ public class View extends JFrame {
         dbPanel = DBPanel.getInstance();
 
         // When work will be ready set logInPanel as start panel
-        panel = menuPanel;
+        panel = logInPanel;
 
         this.add(panel);
     }
